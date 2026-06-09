@@ -1,0 +1,3 @@
+[submodule "examforge_backend"]
+	path = examforge_backend
+	url = https://github.com/Raju-5973/examforge_backend.git

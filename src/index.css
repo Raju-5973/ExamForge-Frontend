@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* =====================================================
+   BRIGHT DARK THEME OVERRIDES
+   ===================================================== */
+
+/* Dark mode: brighter background shades */
+.dark body,
+.dark #root {
+  background-color: #0f172a;
+}
+
+/* Brighter sidebar & header in dark mode */
+.dark header,
+.dark aside {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+/* Brighter main area in dark mode */
+.dark main {
+  background-color: #0f172a !important;
+}
+
+/* Brighter card backgrounds */
+.dark .bg-gray-800 {
+  background-color: #1e293b !important;
+}
+
+.dark .bg-gray-900 {
+  background-color: #0f172a !important;
+}
+
+/* Much brighter text */
+.dark .text-gray-400 {
+  color: #94a3b8 !important;
+}
+
+.dark .text-gray-500 {
+  color: #a0aec0 !important;
+}
+
+.dark .text-gray-300 {
+  color: #cbd5e1 !important;
+}
+
+/* Brighter borders */
+.dark .border-gray-700 {
+  border-color: #334155 !important;
+}
+
+.dark .border-gray-600 {
+  border-color: #475569 !important;
+}
+
+/* Brighter hover states */
+.dark .hover\:bg-gray-700:hover {
+  background-color: #334155 !important;
+}
+
+.dark .hover\:bg-gray-800:hover {
+  background-color: #1e293b !important;
+}
+
+/* Brighter input / select backgrounds */
+.dark input:not([type="range"]),
+.dark select,
+.dark textarea {
+  background-color: #1e293b !important;
+  border-color: #475569 !important;
+  color: #f1f5f9 !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #64748b !important;
+}
+
+/* Custom Print Styles */
+@media print {
+  body { background: white !important; }
+  .print\:hidden { display: none !important; }
+  .print\:shadow-none { box-shadow: none !important; }
+  .print\:border-none { border: none !important; }
+  .page-break-before { page-break-before: always; }
+  .page-break-after { page-break-after: always; }
+  .page-break-inside-avoid { page-break-inside: avoid; }
+}
+
+/* Smooth transitions */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+.dark ::-webkit-scrollbar-track { background: #1e293b; }
+::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
+.dark ::-webkit-scrollbar-thumb { background: #475569; }
+::-webkit-scrollbar-thumb:hover { background: #555; }
+.dark ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+/* Toast Animations */
+@keyframes toast-enter {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes toast-leave {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-100%); opacity: 0; }
+}
+
+.animate-enter {
+  animation: toast-enter 0.3s ease-out forwards;
+}
+
+.animate-leave {
+  animation: toast-leave 0.3s ease-in forwards;
+}
