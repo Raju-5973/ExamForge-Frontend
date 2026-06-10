@@ -303,7 +303,11 @@ export const Login = () => {
       });
       const data = await res.json();
       if (data.success) {
-        addToast(`✉️ OTP sent to ${email} — check your inbox!`, 'success');
+        if (data.dev_mode) {
+          addToast(`DEV MODE: Your OTP is ${data.dev_otp}`, 'success');
+        } else {
+          addToast(`✉️ OTP sent to ${email} — check your inbox!`, 'success');
+        }
         setShowOTPModal(true);
       } else {
         addToast(data.message || 'Failed to send OTP. Try again.', 'error');
